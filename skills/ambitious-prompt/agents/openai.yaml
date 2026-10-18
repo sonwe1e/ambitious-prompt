@@ -1,0 +1,4 @@
+interface:
+  display_name: "进阶提示词设计"
+  short_description: "重审目标、贡献专业方法；按本轮意图评议、探索、编写提示词或完成工作"
+  default_prompt: "使用 $ambitious-prompt 完善任务理解，按我本轮要求交付判断、方向建议、提示词或实际成果；简单任务简洁回答："
