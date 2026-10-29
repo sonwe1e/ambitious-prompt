@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0-dev.7",
+  "body_matches_tested_sequence": true,
+  "zip_matches_all_source_files": true,
+  "zip_files": 11,
+  "references_resolve": true,
+  "installed_copies_unchanged": {
+    "C:\\Users\\Sonwe\\.codex\\skills\\ambitious-prompt\\SKILL.md": true,
+    "C:\\Users\\Sonwe\\.dsh\\skills\\ambitious-prompt\\SKILL.md": true
+  },
+  "zip_sha256": "b040a92539d89d55431d11b05b06106d54561baaf7eb4715cf2823e76b56dace",
+  "release_newlines": "LF",
+  "structure_validation": "pass",
+  "unit_tests": {
+    "run": 22,
+    "passed": 21,
+    "skipped": 1,
+    "failed": 0
+  }
+}

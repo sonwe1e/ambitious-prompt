@@ -1,6 +1,6 @@
 {
   "name": "@sonwe1e/ambitious-prompt",
-  "version": "0.1.0",
+  "version": "0.2.0-dev.10",
   "license": "MIT",
   "author": "sonwe1e",
   "description": "An Agent Skill that uses domain expertise to rethink goals, methods and prompts while preserving user intent.",
@@ -20,7 +20,12 @@
   },
   "files": [
     "cordis.patch.yml",
-    "skills/",
+    "SKILL.md",
+    "agents/",
+    "assets/",
+    "references/",
+    "scripts/install.py",
+    "scripts/local_feedback.py",
     "integrations/",
     "LICENSE",
     "NOTICE.md"

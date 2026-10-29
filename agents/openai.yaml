@@ -1,0 +1,13 @@
+interface:
+  display_name: 进阶提示词设计
+  short_description: 先展示理解与关键改动，少量澄清后优化提示词和任务，保留目标与边界
+  default_prompt: 使用 $ambitious-prompt 先说明你对任务的理解、实质改动及关键未知；只问影响方向的少量问题，按我的要求交付提示词或完成任务。
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0-dev.8",
+  "agents": [
+    "codex",
+    "claude",
+    "dsh",
+    "opencode",
+    "zcode",
+    "workbuddy",
+    "workbuddy-intl"
+  ],
+  "files_per_agent": 11,
+  "default_rules_synced": true,
+  "other_settings_preserved": true,
+  "backup": "C:\\Users\\Sonwe\\.ambitious-prompt\\backups\\sync-dev8-20261021-234731",
+  "structure": "pass",
+  "tests": {
+    "passed": 21,
+    "skipped": 1
+  },
+  "model_behavior_evaluated": false,
+  "zip_sha256": "750ce89bd899b822a7a94f10f9d806d1ef2ac7df2b907febb9b9d99c70d3d937"
+}

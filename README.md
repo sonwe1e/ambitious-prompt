@@ -12,23 +12,25 @@ For DeepSeek Harness, the same skill is also available as a native skill-provide
 
 The community [DSH market index](https://raw.githubusercontent.com/sonwe1e/dsh-flow-next/main/marketplace/index.json) lists this bundle and [Flow Next](https://github.com/sonwe1e/dsh-flow-next), a companion native DSH mode. Agent Skill installation and DSH bundle installation are two distribution options for this same skill; neither automatically changes another user's global instructions.
 
-从用户的零散表达推断可能的真实意图，用专业判断重构目标、工作主线与跨领域方法，再通过少量讨论形成更有雄心、可执行的提示词。用户不必预先知道自己应该做什么。默认中文，也会跟随用户的语言偏好。
+结合上下文与用户的零散表达澄清意图，用专业判断重构目标、工作主线与跨领域方法，通过有内容的交流形成可执行的任务。关键处让用户看见并纠正理解，补充应改变后续做法；用户不必预先知道自己应该做什么。默认中文，也会跟随用户的语言偏好。
 
-A portable Agent Skill that infers intent, contributes domain expertise, and develops ambitious prompts across altitude, depth, and range. Works with Codex, Claude Code, DeepSeek Harness, OpenCode, ZCode, and the China and international editions of WorkBuddy. The skill itself needs no additional runtime or API key; the optional installer uses Python 3.9+.
+A portable Agent Skill that infers intent, contributes domain expertise, and develops ambitious prompts across altitude, depth, and range. Works with Codex, Claude Code, DeepSeek Harness, OpenCode, ZCode, and the China and international editions of WorkBuddy. Core instructions need no additional runtime or API key; the optional installer and opt-in local recorder use Python 3.9+.
 
 ## 它怎样工作
 
-- 先根据用户的线索提出有实质差异的任务理解，解释推荐，而非等待用户自己定义完整需求。
+- 根据用户线索形成意图假设，关键含义不明时先问清；目标探索时解释有实质差异的选择与推荐，帮助用户形成需求。
 - 提炼能改变设计的机制、依赖、瓶颈或权衡，让专业判断影响目标、顺序、分支与停止条件，减少执行模型需要重新摸索的关键决策。
 - 高度：判断眼前交付物服务于什么结果，并据此改变主线与内容取舍。
 - 深度：补上专业人士会做的判断，依据可比证据设定挑战目标，区分硬要求、候选阈值与诊断统计，不用未经校准的数字冒充质量标准。
 - 广度：主动引入结果成立所需的相关方法，将内容、教学、视觉或其他专业贡献整合进同一方案。
 - 通过具体提案帮助用户形成偏好；产品目的与体验取舍由用户选择或明确委托，专业实现由模型判断，已有选择不重复询问。
+- 有实质路线分歧时比较机制或组织方式不同的候选，用小样辨别取舍；面向新读者检查独立使用所需上下文，按具体失败修复可复用提示词，不为简单任务增加固定流程。
+- 从用户表达和上下文形成有依据的意图假设，在会改变行动的疑点上及时询问。对象或表达含义不明时先问清；对象明确但目标尚在探索时，可用简短对比或小样说明取舍，不将它当作用户已选方向。建议改换目标或方向时，问过用户再展开；收到回答后更新理解与方案，已定方向与常规方法直接推进。
 - 按本轮意图交付判断、方向建议、提示词或实际成果，让专业认识改变目标、方法和结果。
 
 复杂任务将执行决策与支撑资料分层：主干说明为何这样做、关键前提、何时转向或结束；详细契约、历史背景与必要检查各保留一次，并保持约束力。若撤去专业判断后计划完全不变，就需要重新设计，而不是继续加长清单。已可靠的前提可以沿用，明确的小任务保留原范围，不强行套用审计或工程流程。
 
-证据强弱直接影响行动：历史观察限定适用范围，专业解释保持可检验，未确定的方向保持有条件。模拟策略可能制造观察结果，不能直接代表真实使用；核心能力未验证，也不能靠展示“未知”算作完成。有依据时明确提出进取目标，缺少数值依据时提供具体结果与范围有限的校准路径，保持任务可推进。
+证据强弱从首次表述起就约束结论与行动：历史观察限定适用范围，专业解释保持可检验，未确定的方向保持有条件。代理指标、聚合变化或局部能力不能单独证明真实质量、个体动机、具体因果或完整能力；推荐当前方案不自动证明其他路线错误。保留用户问题的层次，不无依据地转成个人归责。核心能力未验证，也不能靠展示“未知”算作完成；有依据时提出进取目标，缺少数值依据时给出机制明确的校准路径。
 
 例如，“做一篇论文的 PPT”可能服务于方法讲解、专题入门或研究判断。确定适合的目标后，将机制例子、证据比较、教学顺序和视觉层级一起设计。又如推理加速，要利用基准与瓶颈判断提出有依据的进取目标，而不是把“想快多少”交给用户决定。
 
@@ -48,7 +50,7 @@ python scripts/install.py --agents claude dsh opencode zcode
 python scripts/install.py --agents workbuddy workbuddy-intl
 ```
 
-macOS/Linux 如果只有 `python3`，将以上 `python` 替换为 `python3`。没有 Python 时，可以把 `skills/ambitious-prompt/` 整个目录复制到下表中的 skills 根目录，并将根目录的 `LICENSE` 和 `NOTICE.md` 一起放入复制后的技能目录。
+macOS/Linux 如果只有 `python3`，将以上 `python` 替换为 `python3`。没有 Python 时，可以把仓库根目录的 `SKILL.md`、`agents/`、`assets/`、`references/`、`scripts/` 复制到下表 skills 根目录下的 `ambitious-prompt/` 子目录，并将根目录的 `LICENSE` 和 `NOTICE.md` 一起放入复制后的技能目录。
 
 | Agent | 默认用户级技能目录 | 调用方式 |
 | --- | --- | --- |
@@ -72,7 +74,7 @@ WorkBuddy 两版使用各自默认目录，安装器不会将通用 `WORKBUDDY_C
 
 显式调用 skill 指定方法，最终交付仍由本轮请求决定：评议交付判断与依据，探索交付有取舍的推荐和必要讨论，提示词编写交付自包含提示词，执行请求交付实际成果。“先评议再修改”会完成两者，普通问答和只要计划的请求也保持各自范围。提到或引用一份执行提示词不等于要求实际执行。
 
-用户启用默认执行模式后，这四类请求都会先在内部完善理解，再直接交付相应结果；不要求展示优化稿，也不增加一次模型调用。简单任务直接给结果和必要下一步，不默认附冗长验收报告；必要检查仍完成，复杂失败和用户要求的交接细节仍保留。
+用户启用默认执行模式后，这四类请求都会先完善理解，再交付相应结果；复杂或模糊任务在关键处沟通，不要求展示中间优化稿，也不增加一次模型调用。不固定要求每轮提问或复述，方向清楚且已有授权就推进。简单任务直接给结果和必要下一步，不默认附冗长验收报告；必要检查仍完成，复杂失败和用户要求的交接细节仍保留。
 
 要跨项目默认启用，将 [默认启动规则模板](integrations/default-instructions.md) 中的 `{{SKILL_PATH}}` 替换为本机该 agent 的 `ambitious-prompt/SKILL.md` 绝对路径，再将整个标记区块合并进对应用户级指令入口，保留原有规则：
 
@@ -126,15 +128,31 @@ Claude Code 中如果刚创建了顶层 skills 目录，可运行 `/reload-skill
 - [ZCode：Skill](https://zcode.z.ai/en/docs/skill)
 - [WorkBuddy：技能安装与管理](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)；具体目录与个性化配置另按上述本机版本核对，未据此宣称所有旧会话已热加载。
 
+## 本地使用记录与反馈（开发版）
+
+可选记录器将一次实际使用与后来反馈用编号关联，记录版本/内容指纹、agent、任务类型与摘要，以及公开的目标、方法和结果摘要。开始记录和后续事件分开保存；模型完成声明、用户反馈与效果证据相互区分。不开启时不写记录，核心技能仍不依赖 Python。
+
+在已安装 skill 目录中运行 `python scripts/local_feedback.py configure --enable`，再将 [本地记录启动规则](references/local-recording-instructions.md) 合并到相应 agent 的用户级指令，替换 agent 名、skill 路径与 status 返回的数据目录；与可选的默认优化模式分开选择。关闭使用 `configure --disable`。Linux 用 `python3`，详见[操作与反馈关联指南](references/local-feedback.md)。
+
+Windows 默认保存到 `~/.ambitious-prompt`，Linux/macOS 默认保存到 `~/.local/state/ambitious-prompt`（遵循 `XDG_STATE_HOME`）。启动规则同时明确共享目录，避免宿主环境变量不同造成分流。同一用户的七个 agent 可共用目录，不同服务器各自独立。本地数据不放入技能目录、安装包或源码仓库，不自动上传、不自动改写技能。已有的公开 v0.1.0 不含此开发功能。
+
+普通 Markdown skill 只能通过指令尽力调用记录器，不能保证每次都执行或统计漏记。宿主严格审计需单独集成原生 hook。记录失败不阻塞主任务，简单任务不增加问卷或报告。
+
 ## 维护与测试
 
-编辑 `skills/ambitious-prompt/SKILL.md` 维护核心指令；交互示例在 `skills/ambitious-prompt/references/dialogue-examples.md`，目标校准方法在同目录的 `expert-calibration.md`。新增的 [任务组织示例](skills/ambitious-prompt/references/task-reframing.md) 展示专业判断如何重组软件收尾、反馈分析与创作任务。不需要将用户的真实对话、材料、凭据或 agent 配置加入本仓库。
+当前项目试用版为 **0.2.0-dev.10**：依据既有评估和使用反馈，细化关键歧义的提问时点、行动和最终决定与必要条件的逐项对应、单次观察的表达，以及持续执行时让用户看见实际成果。保留 dev.9 借鉴的候选比较、小样、读者视角和提示词迭代方法；操作细节按需读取 [设计方法](references/design-methods.md)，来源与取舍见 [同类技能借鉴记录](references/skill-sources.md)。新增行为案例供后续对照；结构与安装检查不能证明模型行为改善，dev.10 尚未进行独立模型行为对照。
+
+此前 dev.7 的 DSH V4.1 Flash 三组57会话、75条回复对照及已知失败见[三组验证报告](evals/runs/2026-10-21-sequence-threeway/report.md)。该报告只支持当时版本与测试条件，不能直接当作 dev.10 的效果证据。
+
+本轮修改发现的问题、修正与检查边界见 [dev.10 修改审核](evals/releases/0.2.0-dev.10/review.md)。
+
+编辑 `SKILL.md` 维护核心指令；交互示例在 `references/dialogue-examples.md`，目标校准方法在同目录的 `expert-calibration.md`。新增的 [任务组织示例](references/task-reframing.md) 展示专业判断如何重组软件收尾、反馈分析与创作任务。不需要将用户的真实对话、材料、凭据或 agent 配置加入本仓库。
 
 ```sh
 python -m unittest discover -s tests -v
 ```
 
-测试覆盖安装、重复运行、冲突保护、只预览不写入、自定义路径，以及 WorkBuddy 两版目录隔离和已有设置保留，不运行任何 agent 或消耗模型额度。
+测试覆盖安装、重复运行、冲突保护、只预览不写入、自定义路径，以及 WorkBuddy 两版目录隔离和已有设置保留。记录器另覆盖开关、并发写入、中文输入、版本关联、反馈追加与指定案例导出；不运行任何 agent 或消耗模型额度。
 
 效果评估见 [行为评估案例](evals/scenarios.md)，需要观察真实对话和最终提示词。文件结构校验、安装测试或人工编写示例不能证明模型在这些案例上已经通过；执行评估时应保留具体输出与判断依据。
 

@@ -2,6 +2,7 @@
 
 import importlib.util
 from pathlib import Path
+import shutil
 import tempfile
 import unittest
 
@@ -13,6 +14,26 @@ spec.loader.exec_module(installer)
 
 
 class InstallTests(unittest.TestCase):
+    def test_python_runtime_cache_is_not_distributed(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for item in ("SKILL.md", "agents", "assets", "references", "scripts"):
+                source = ROOT / item
+                if source.is_dir():
+                    shutil.copytree(source, root / item, ignore=shutil.ignore_patterns("__pycache__"))
+                else:
+                    shutil.copyfile(source, root / item)
+            for name in ("LICENSE", "NOTICE.md"):
+                shutil.copyfile(ROOT / name, root / name)
+            cache = root / "scripts" / "__pycache__"
+            cache.mkdir(parents=True, exist_ok=True)
+            (cache / "sentinel.pyc").write_bytes(b"not distributable")
+            selected = installer.payload(root)
+            self.assertFalse(any("__pycache__" in str(p) or p.suffix == ".pyc" for p in selected))
+            self.assertIn(Path("scripts/local_feedback.py"), selected)
+            self.assertIn(Path("SKILL.md"), selected)
+            self.assertNotIn(Path("scripts/install.py"), selected)
+
     def test_install_all_and_repeat_preserves_files(self):
         with tempfile.TemporaryDirectory() as temporary:
             roots = installer.target_roots(Path(temporary), {})

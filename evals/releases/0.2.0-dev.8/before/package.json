@@ -1,0 +1,33 @@
+{
+  "name": "@sonwe1e/ambitious-prompt",
+  "version": "0.2.0-dev.7",
+  "license": "MIT",
+  "author": "sonwe1e",
+  "description": "An Agent Skill that uses domain expertise to rethink goals, methods and prompts while preserving user intent.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonwe1e/ambitious-prompt.git"
+  },
+  "homepage": "https://github.com/sonwe1e/ambitious-prompt#readme",
+  "keywords": [
+    "agent-skills",
+    "prompt-engineering",
+    "dsh-plugin",
+    "deepseek-harness"
+  ],
+  "engines": {
+    "dsh": "0.2.1-rc.2"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "skills/",
+    "integrations/",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

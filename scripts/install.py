@@ -1,4 +1,4 @@
-"""Install this instruction-only skill using Python 3.9+ and no dependencies."""
+"""Install this skill and its optional local recorder using Python 3.9+, no dependencies."""
 
 import argparse
 import os
@@ -37,10 +37,16 @@ def target_roots(home, env):
 
 
 def payload(repo_root):
-    skill = repo_root / "skills" / SKILL_NAME
+    """The skill lives at the repo root; LICENSE and NOTICE.md ship beside it."""
+    skill = repo_root
     if not (skill / "SKILL.md").is_file():
         raise ValueError(f"Missing skill: {skill}")
-    files = {p.relative_to(skill): p for p in skill.rglob("*") if p.is_file()}
+    files = {
+        p.relative_to(skill): p for p in skill.rglob("*")
+        if p.is_file() and "__pycache__" not in p.relative_to(skill).parts
+        and p.suffix not in (".pyc", ".pyo")
+        and p.relative_to(skill) != Path("scripts") / "install.py"
+    }
     for filename in ("LICENSE", "NOTICE.md"):
         source = repo_root / filename
         if not source.is_file():
