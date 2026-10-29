@@ -1,6 +1,6 @@
 {
   "name": "@sonwe1e/ambitious-prompt",
-  "version": "0.2.0-dev.10",
+  "version": "0.2.0-dev.12",
   "license": "MIT",
   "author": "sonwe1e",
   "description": "An Agent Skill that uses domain expertise to rethink goals, methods and prompts while preserving user intent.",
