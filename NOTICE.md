@@ -6,7 +6,7 @@
 
 本项目自行编写访谈流程、交付规则、虚构对话示例和安装脚本；技能中包含简短的方法摘要和原文链接。项目未打包原文全文、译文、配图或网站素材。
 
-0.2.0-dev.9 的方法改进另参考 obra/Superpowers 的 brainstorming、K-Dense Scientific Agent Skills 的 scientific-brainstorming、Anthropic 的 doc-coauthoring，以及 Seth Hobson 的 prompt-engineering-patterns。具体原文件、固定提交与采用边界记录在技能目录的 `references/skill-sources.md`（仓库中为 `references/skill-sources.md`）。新增中文规则与示例由本项目独立编写，未收录上述项目的技能正文、代码或模板；链接和方法借鉴不表示其作者认可本项目。
+0.2.0-dev.9 的方法改进另参考 obra/Superpowers 的 brainstorming、K-Dense Scientific Agent Skills 的 scientific-brainstorming、Anthropic 的 doc-coauthoring，以及 Seth Hobson 的 prompt-engineering-patterns。具体原文件、固定提交与采用边界记录在技能目录的 `references/skill-sources.md`（仓库中为 `skills/ambitious-prompt/references/skill-sources.md`）。新增中文规则与示例由本项目独立编写，未收录上述项目的技能正文、代码或模板；链接和方法借鉴不表示其作者认可本项目。
 
 本仓库的 MIT 许可证适用于本项目提供的内容，不对所链接的文章、第三方软件或商标授予权利。引用原文时请继续标明作者与出处。
 

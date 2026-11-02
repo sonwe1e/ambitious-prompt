@@ -49,3 +49,27 @@
 每轮通常 1–3 个关键问题、答复后形成可用任务说明，以及区分“展示”与“等待”，是本技能基于交互需求作出的设计选择，不是上述来源证明的最佳参数。
 
 关于用户提到的 Karpathy：检索线索指向 https://x.com/karpathy/status/2105819303471976479 ，但本轮未能直接读取原帖，故不引述其原话、不将“80% STE”等转载表述当成标准或效果依据。STE 的使用理由依据官方语言原则与本任务需要。
+
+## 2026-10-31：dev.13 候选的提问顺序与回答效用
+
+本轮候选将原有具体场景支架与三角度选题整合，调整提问前的专业判断及回答后的设计承接；具体经历提问不记为全新能力。候选未达到预设采用门槛，最终保留 dev12 运行规则。这些来源用于维护研究，不表示候选已作为运行策略发布。
+
+- [Rao & Daumé III（2018），Learning to Ask Good Questions](https://aclanthology.org/P18-1255/)：借鉴以可能回答的效用选择澄清问题。本研究处理 StackExchange 的澄清问题排序，效用关乎补入回答后原问题的信息完整性；这里将其转用于判断回答会改变哪项设计，不声称论文验证了通用需求访谈或本技能。
+- [Stanford d.school，Design Thinking Bootleg](https://dschool.stanford.edu/tools/design-thinking-bootleg)：借鉴询问具体经历、鼓励讲述和中性提问，用于细化已有场景支架，避免让用户先给专业诊断。这是方法指南，不是效果实验。
+
+以上为方法依据与局部设计假设；文字修订本身不能证明行为或用户体验改善。实际对照、未采用决定与经验见[行为评估案例](behavior-evals.md)的 2026-10-31 记录。
+
+## 2026-10-31：1.0.0 正式版的四维与表达适配
+
+本次保留现有交付分流、澄清预算、证据与授权规则，在其基础上细化目标形成支架、补齐速度维度、增加可扫读呈现与环境适配，并补足高代价适用范围歧义的处理。以下是正式版采用的来源研究与设计依据，来源本身不构成效果证据。正式版运行规则与经独立审计的候选修订2一致，仅更新版本标记；本轮限定准备度通过，整体增益未得到证明。首轮失败、修复、新题验证和局限见[正式版验证与维护记录](behavior-evals.md#正式版验证与维护记录)，历史开发记录与下列来源边界继续保留。
+
+| 本次核对来源 | 读取范围与采用部分 | 边界 |
+| --- | --- | --- |
+| Felix Rieseberg，[How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/)，2026-10-13 | 已直接读取全文；原文列出速度、高度、深度、广度，强调原始材料、方法与验证。 | 作者列出速度后未展开。本技能的依赖安排、复用、条件式并行和早期代表性成果，是项目设计，不能归为原文验证过的提速机制。 |
+| [ASD-STE100 首页](https://www.asd-ste100.org/)、[当前 FAQ](https://www.asd-ste100.org/STE_faq.html)、[Issue 9](https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf) 与[下载页](https://www.asd-ste100.org/STE_downloads.html) | 官方索引核到 Issue 9 日期为 2025-01-15；借鉴术语一致、主动表达、明确动作与短而完整的句子，并区分 AI 文本与标准符合性。 | FAQ、下载页和 PDF 直接读取受限，未完成标准全文审阅。中文不套英文词数或词典限制，不宣称完整符合标准或任何合规百分比；清晰表达不代替目标发现。 |
+| [Matt Pocock · grilling](https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grilling/SKILL.md) 与 [RoboNuggets · be-ambitious](https://github.com/robonuggets/be-ambitious/blob/main/SKILL.md) | 本次直接读取默认分支。前者按问题依赖组织澄清；后者将维度选择落实到材料、工具、改写与执行分流。 | 只补充核对已有机制，不包装成新发现；不采用穷尽决策树、统一强目标、固定层级或额外确认。这些默认分支不是固定提交快照。 |
+| [Command Line Interface Guidelines](https://clig.dev/) 与 [NO_COLOR](https://no-color.org/) | 已直接读取；借鉴简短结果回执、明确下一步、有目的地少量用色，以及对输出环境和用户禁色偏好的尊重。 | 不保证宿主聊天支持颜色，不把终端格式套到普通聊天；颜色不能独立承载状态。`NO_COLOR` 针对颜色，不等于禁止全部样式。 |
+
+目标形成支架连接已有线索、可纠正的暂定目标与回答后的设计更新；速度同时考虑首个有用结果、完整交付和用户投入，保留必要验证与完整范围。它们与状态标签、下一步归属均是本项目按用户需求形成的设计选择，没有从来源获得最佳流程或效果证明。
+
+Karpathy 原帖线索仍为 https://x.com/karpathy/status/2105819303471976479 。本次直接读取与官方嵌入入口未取得正文，限定作者原站的检索也未能独立核实；不引用其原话、转载的“80%”或未经核实的身份描述。表达原则依据 STE 官方来源，媒介选择依据任务和实际输出环境。
